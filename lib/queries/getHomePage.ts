@@ -8,6 +8,27 @@ export const getHomePage = gql`
       title
       slug
       isFrontPage
+      seo {
+        canonical
+        breadcrumbs {
+          text
+          url
+        }
+        metaDesc
+        metaKeywords
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphTitle
+        opengraphUrl
+        title
+        twitterDescription
+        cornerstone
+        opengraphImage {
+          altText
+          mediaItemUrl
+          slug
+        }
+      }
       homepage_acf {
         bannerTitle
         ncContent
@@ -57,6 +78,27 @@ export const getHomePage = gql`
         }
         mdSubtitle
         mdTitle
+      }
+      seo {
+        canonical
+        breadcrumbs {
+          text
+          url
+        }
+        metaDesc
+        metaKeywords
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphTitle
+        opengraphUrl
+        title
+        twitterDescription
+        cornerstone
+        opengraphImage {
+          altText
+          mediaItemUrl
+          slug
+        }
       }
     }
   }

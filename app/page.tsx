@@ -1,4 +1,5 @@
 import { getClient } from "@/lib/client";
+import { Metadata } from "next";
 
 import Image from "next/image";
 import Banner from "./Components/Home/Banner";
@@ -9,29 +10,21 @@ import { getHomePage } from "@/lib/queries/getHomePage";
 import FeaturedCommunity from "./Components/Home/FeaturedCommunity";
 import Homes from "./Components/Home/Homes";
 
-// async function getData() {
-//   const query = `
-//   `;
-
-//   const res = await fetch(
-//     `${process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT}?query=${encodeURIComponent(
-//       query
-//     )}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       next: {
-//         revalidate: 0,
-//       },
-//     }
-//   );
-
-//   const { data } = await res.json();
-
-//   return data.page;
-// }
+// or Dynamic metadata
+export async function generateMetadata() {
+  const { data } = await getClient().query({ query: getHomePage });
+  return {
+    title: data.page.seo.title,
+    description: data.page.seo.metaDesc,
+    images: [
+      {
+        url: data.page.seo.opengraphImage.mediaItemUrl,
+        width: 800,
+        height: 600,
+      },
+    ],
+  };
+}
 
 export default async function Home() {
   const { data } = await getClient().query({ query: getHomePage });

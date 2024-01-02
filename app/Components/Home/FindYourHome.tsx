@@ -57,7 +57,7 @@ function FindYourHome({ findYourHome }: FindYourHomeProps) {
             <div>
               <Image
                 src={qlink.fyhImage.mediaItemUrl}
-                alt={qlink.name}
+                alt={qlink.fyhImage.altText}
                 width={800}
                 height={400}
                 className="object-cover md:max-h-[400px]"

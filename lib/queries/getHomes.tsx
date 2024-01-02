@@ -8,6 +8,7 @@ export const getHomes = gql`
         title
         slug
         status
+        uri
         qmi_acf_fields {
           featuredHome
           homeName
@@ -44,6 +45,16 @@ export const getHomes = gql`
           homeAnnouncementsTextGroup {
             fieldGroupName
             homeCustomAnnouncements
+          }
+          homeFloorplan {
+            ... on Plan {
+              id
+              uri
+              title
+              plans_acf_fields {
+                planName
+              }
+            }
           }
         }
       }

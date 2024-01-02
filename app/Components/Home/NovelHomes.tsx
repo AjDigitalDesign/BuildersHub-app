@@ -51,8 +51,9 @@ function NovelHomes({
         <Image
           src={imageUrl.mediaItemUrl}
           alt="image"
-          width={900}
+          width={800}
           height={700}
+          className="w-auto h-auto"
         />
       </div>
     </div>

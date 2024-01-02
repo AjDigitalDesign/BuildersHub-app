@@ -33,7 +33,7 @@ function DifferentSection({
           width={600}
           height={600}
           priority
-          className="h-[350px] sm:h-[auto] object-cover bg-cover lg:absolute lg:-top-[260px] xl:-top-[280px] lg:h-[500px] xl:h-[600px] lg:mx-auto lg:max-w-[480px] xl:max-w-[580px]"
+          className="w-auto  h-[350px] sm:h-[auto] object-cover bg-cover lg:absolute lg:-top-[260px] xl:-top-[280px] lg:h-[500px] xl:h-[600px] lg:mx-auto lg:max-w-[480px] xl:max-w-[580px]"
         />
       </div>
       <div className="order-0 md:order-1 text-white py-12 sm:py-20">
