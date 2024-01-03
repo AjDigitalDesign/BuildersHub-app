@@ -29,6 +29,8 @@ export async function generateMetadata() {
 export default async function Home() {
   const { data } = await getClient().query({ query: getHomePage });
 
+  // console.log(data.page.homepage_acf.findYourHome);
+
   return (
     <div>
       <Banner
@@ -50,7 +52,7 @@ export default async function Home() {
         imageurl={data.page.homepage_acf.mdSectionImage}
         link={data.page.homepage_acf.mdLearnMore}
       />
-      <FindYourHome findYourHome={data.page.homepage_acf.findYourHome} />
+      <FindYourHome quickLinks={data.page.homepage_acf.findYourHome} />
       <FeaturedCommunity />
       <Homes />
     </div>

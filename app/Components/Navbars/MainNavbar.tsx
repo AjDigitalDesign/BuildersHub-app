@@ -66,6 +66,8 @@ function MainNavbar() {
             <Image
               src={CtaImage}
               alt="cta"
+              width="0"
+              height="0"
               className="w-full h-20 object-cover bg-cover"
             />
           </div>

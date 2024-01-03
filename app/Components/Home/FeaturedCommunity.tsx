@@ -14,7 +14,7 @@ async function FeaturedCommunity() {
     }) => item.home.featuredCommunity
   );
 
-  console.log(firstFeaturedCommunity);
+  // console.log(firstFeaturedCommunity);
   const USDollarCurrency = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

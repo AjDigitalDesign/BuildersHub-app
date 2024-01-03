@@ -1,16 +1,46 @@
 import { getClient } from "@/lib/client";
 import { getHomes } from "@/lib/queries/getHomes";
-import {
-  BathIcon,
-  Bed,
-  BedIcon,
-  BedSingle,
-  BedSingleIcon,
-  Ruler,
-  Slice,
-} from "lucide-react";
+import { BathIcon, BedSingleIcon, Ruler } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+interface HomesProps {
+  id: string;
+  status: string;
+  uri: string;
+  qmi_acf_fields: {
+    uri: string;
+    homeAddress: string;
+    homeCity: string;
+    homeSqft: number;
+    homePrice: number;
+    homeState: string;
+    homeBeds: number;
+    homeBaths: number;
+    homeAnnouncementsGroup: {
+      homeAnnouncementsToggle: string;
+    };
+
+    homeAnnouncementsTextGroup: {
+      homeCustomAnnouncements: string;
+    };
+    photos: {
+      altText: string;
+      mediaItemUrl: string;
+    }[];
+    homeCommunity: {
+      uri: string;
+      title: string;
+    }[];
+    homeFloorplan: {
+      uri: string;
+      title: string;
+      plans_acf_fields: {
+        planName: string;
+      };
+    }[];
+  };
+}
 
 async function Homes() {
   const { data } = await getClient().query({ query: getHomes });
@@ -41,7 +71,7 @@ async function Homes() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-5 xl:gap-6">
-        {featuredHomes.map((home) => (
+        {featuredHomes.map((home: HomesProps) => (
           <div key={home.id} className="shadow-md mb-8 relative">
             <div className="relative">
               <Image

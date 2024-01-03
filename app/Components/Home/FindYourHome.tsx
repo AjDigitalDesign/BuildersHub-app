@@ -8,7 +8,8 @@ import { UrlObject } from "url";
 import { ChevronsRight } from "lucide-react";
 
 interface FindYourHomeProps {
-  findYourHome: {
+  quickLinks: {
+    url: string;
     fyhButton: {
       url: string;
       title: string;
@@ -17,7 +18,7 @@ interface FindYourHomeProps {
       mediaItemUrl: string;
       altText: string;
     };
-  };
+  }[];
 }
 
 const qLinks = [
@@ -38,8 +39,8 @@ const qLinks = [
   },
 ];
 
-function FindYourHome({ findYourHome }: FindYourHomeProps) {
-  console.log(findYourHome);
+function FindYourHome({ quickLinks }: FindYourHomeProps) {
+  // console.log(quickLinks);
 
   return (
     <div className="px-4 my-10 md:my-12 lg:my-24 xl:mt-36 max-w-7xl mx-auto lg-px-2 xl:px-2">
@@ -53,38 +54,30 @@ function FindYourHome({ findYourHome }: FindYourHomeProps) {
       </div>
 
       <div className="grid grid-cols-1 space-y-10 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-4 md:gap-y-10 items-center justify-center flex-wrap">
-        {findYourHome.map(
-          (qlink: {
-            fyhButton: {
-              text: React.Key | null | undefined;
-              url: string | UrlObject;
-              title: string;
-            };
-            fyhImage: { mediaItemUrl: string; altText: string };
-          }) => (
-            <div key={qlink.fyhButton.text} className="shadow-xl">
-              <div>
-                <Image
-                  src={qlink.fyhImage.mediaItemUrl}
-                  alt={qlink.fyhImage.altText}
-                  width={800}
-                  height={400}
-                  className="object-cover md:max-h-[400px]"
-                />
-              </div>
-              <div className="py-5 flex items-center justify-center">
-                <h3 className="capitalize text-lg font-semibold antialiased text-dark_dark_blue tracking-tight">
-                  <Link
-                    href={qlink.fyhButton.url}
-                    className="flex items-center text-dark_dark_blue antialiased text-lg hover:text-light_blue transition-all duration-75"
-                  >
-                    {qlink.fyhButton.title} <ChevronsRight />
-                  </Link>
-                </h3>
-              </div>
+        {quickLinks.map((qlink) => (
+          <div key={qlink.fyhButton.title} className="shadow-xl">
+            <div>
+              <Image
+                src={qlink.fyhImage.mediaItemUrl}
+                alt={qlink.fyhImage.altText}
+                width={400}
+                height={400}
+                sizes="100%"
+                className="object-cover w-full"
+              />
             </div>
-          )
-        )}
+            <div className="py-5 flex items-center justify-center">
+              <h3 className="capitalize text-lg font-semibold antialiased text-dark_dark_blue tracking-tight">
+                <Link
+                  href={qlink.fyhButton.url}
+                  className="flex items-center text-dark_dark_blue antialiased text-lg hover:text-light_blue transition-all duration-75"
+                >
+                  {qlink.fyhButton.title} <ChevronsRight />
+                </Link>
+              </h3>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
