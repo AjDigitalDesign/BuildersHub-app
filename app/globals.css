@@ -57,3 +57,62 @@
     @apply bg-background text-foreground;
   }
 }
+
+.submenu {
+  display: none;
+}
+
+.submenu.open {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.fade-enter {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.fade-exit {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+/* Rotate animation for the chevron */
+.transition-transform {
+  transition-property: transform;
+}
+
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}

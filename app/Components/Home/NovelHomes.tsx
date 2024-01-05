@@ -53,7 +53,7 @@ function NovelHomes({
           alt="image"
           width={800}
           height={700}
-          className="w-auto h-auto"
+          className="bg-cover"
         />
       </div>
     </div>

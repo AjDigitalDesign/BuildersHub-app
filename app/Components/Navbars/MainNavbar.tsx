@@ -1,9 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 import Logo from "../../../public/logo.svg";
 import CtaImage from "../../../public/bg-cta.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
+
+import processImg from "../../../public/communities.jpg";
+import aboutImg from "../../../public/plans.jpg";
+import homeImg from "../../../public/qmi.jpg";
+import galleryImg from "../../../public/qmi.jpg";
+import ImageURL from "../../../public/novel-home.png";
 
 import {
   Sheet,
@@ -16,22 +22,111 @@ import {
 import MobileNavbar from "./MobileNavbar";
 import { Button } from "@/components/ui/button";
 import DesktopMenu from "./DesktopMenu";
+import MenuItems from "./MenuItems";
+import {
+  NavigationMenuProps,
+  MenuItem as MenuItemType,
+} from "@/lib/interfaces";
 
-interface MainNavbarProps {
-  id: string;
-  name: string;
-  href: string;
-}
+const MainNavbar: FC<NavigationMenuProps> = () => {
+  const menuItems: MenuItemType[] = [
+    {
+      label: "Find Your Home",
+      url: "#",
+      megaMenu: true,
+      featuredImg: homeImg,
+      cta: "Find Your Dream Home",
 
-const menuLinks = [
-  { id: "01", name: "Find Your Home", href: "/communities" },
-  { id: "02", name: "Our Process", href: "/process" },
-  { id: "03", name: "Gallery", href: "/gallery" },
-  { id: "04", name: "About", href: "/about" },
-  { id: "05", name: "Contact", href: "/contact" },
-];
+      children: [
+        {
+          label: "Communities",
+          url: "/Communities",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Floorplans",
+          url: "/plans",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Available Homes",
+          url: "homes",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+      ],
+    },
+    {
+      label: "Our Process",
+      url: "#",
+      megaMenu: true,
+      featuredImg: processImg,
+      children: [
+        {
+          label: "Design Center",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Our Process",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Construction Process",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+      ],
+    },
+    {
+      label: "Gallery",
+      url: "#",
+      megaMenu: true,
+      featuredImg: aboutImg,
+      children: [
+        {
+          label: "Photos",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Videos",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Virtual Tours",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+      ],
+    },
 
-function MainNavbar() {
+    {
+      label: "About",
+      url: "#",
+      megaMenu: true,
+      featuredImg: aboutImg,
+      children: [
+        {
+          label: "About Us",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Meet The Team",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+        {
+          label: "Blog",
+          url: "#",
+          desc: "Re-usable components built using Radix UI and Tailwind CSS.",
+        },
+      ],
+    },
+    { label: "Contact", url: "#" },
+  ];
   return (
     <div className="fixed  items-center justify-center  top-0 w-full border-red-300 text-black  bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-50 xl:h-20">
       <div className="flex flex-row justify-between items-center w-full  px-4 py-2 lg:py-0 lg:px-2 xl:px-12">
@@ -45,15 +140,8 @@ function MainNavbar() {
         {/* Menu */}
         <div className="hidden lg:flex">
           <ul className="flex flex-row space-x-3 xl:space-x-6">
-            {menuLinks.map((link) => (
-              <li key={link.id}>
-                <Link
-                  href={link.href}
-                  className="font-semibold uppercase text-black"
-                >
-                  {link.name}
-                </Link>
-              </li>
+            {menuItems.map((item, index) => (
+              <MenuItems key={index} item={item} />
             ))}
           </ul>
           {/* <DesktopMenu /> */}
@@ -90,6 +178,6 @@ function MainNavbar() {
       </div>
     </div>
   );
-}
+};
 
 export default MainNavbar;

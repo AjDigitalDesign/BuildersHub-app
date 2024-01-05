@@ -43,7 +43,7 @@ function FindYourHome({ quickLinks }: FindYourHomeProps) {
   // console.log(quickLinks);
 
   return (
-    <div className="px-4 my-10 md:my-12 lg:my-24 xl:mt-36 max-w-7xl mx-auto lg-px-2 xl:px-2">
+    <div className="px-4 my-10 md:my-12 lg:my-24 xl:mt-36 max-w-7xl mx-auto lg-px-2 lg:px-6 xl:px-12">
       <div className="mb-5">
         <span className="text-black uppercase font-bold text-sm leading-tight tracking-tight">
           You are in Control

@@ -9,6 +9,8 @@ import FindYourHome from "./Components/Home/FindYourHome";
 import { getHomePage } from "@/lib/queries/getHomePage";
 import FeaturedCommunity from "./Components/Home/FeaturedCommunity";
 import Homes from "./Components/Home/Homes";
+import Testimonials from "./Components/Home/Testimonials";
+import Gallery from "./Components/Home/Gallery";
 
 // or Dynamic metadata
 export async function generateMetadata() {
@@ -38,6 +40,7 @@ export default async function Home() {
         bannerTitle={data.page.homepage_acf.bannerTitle}
         bannerLink={data.page.homepage_acf.bannerButton}
       />
+
       <NovelHomes
         title={data.page.homepage_acf.nextchapterTitle}
         subtitle={data.page.homepage_acf.subtitle}
@@ -45,6 +48,7 @@ export default async function Home() {
         content={data.page.homepage_acf.ncContent}
         button={data.page.homepage_acf.nhButton}
       />
+
       <DifferentSection
         title={data.page.homepage_acf.mdTitle}
         subTitle={data.page.homepage_acf.mdSubtitle}
@@ -54,7 +58,10 @@ export default async function Home() {
       />
       <FindYourHome quickLinks={data.page.homepage_acf.findYourHome} />
       <FeaturedCommunity />
+
       <Homes />
+      <Testimonials />
+      <Gallery />
     </div>
   );
 }
