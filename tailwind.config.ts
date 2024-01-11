@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        ready_pattern: "url('../public/ready_pattern.svg')",
+      },
       colors: {
         medium_blue: "#0E6BA8",
         dark_dark_blue: "#00072D",

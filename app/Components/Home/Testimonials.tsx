@@ -13,7 +13,7 @@ function Testimonials() {
       <div className="bg-light_blue px-4 py-10 md:py-12 md:px-12">
         <div className="border-y-2 border-dark_blue">
           <div className="mt-4 mb-2">
-            <h3 className="font-semibold capitalize text-2xl italic leading-tight">
+            <h3 className="font-semibold capitalize text-2xl leading-tight xl:text-4xl">
               Happy Homeowners
             </h3>
           </div>
@@ -25,7 +25,7 @@ function Testimonials() {
               <Swiper
                 navigation={true}
                 modules={[Navigation]}
-                className="mySwiper"
+                className="testimonialSwiper"
                 spaceBetween={50}
                 slidesPerView={1}
                 onSlideChange={() => console.log("slide change")}

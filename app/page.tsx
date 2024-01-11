@@ -11,6 +11,7 @@ import FeaturedCommunity from "./Components/Home/FeaturedCommunity";
 import Homes from "./Components/Home/Homes";
 import Testimonials from "./Components/Home/Testimonials";
 import Gallery from "./Components/Home/Gallery";
+import ReadyCta from "./Components/Footer/ReadyCta";
 
 // or Dynamic metadata
 export async function generateMetadata() {
@@ -62,6 +63,8 @@ export default async function Home() {
       <Homes />
       <Testimonials />
       <Gallery />
+
+      <ReadyCta />
     </div>
   );
 }

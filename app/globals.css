@@ -116,3 +116,57 @@
 .rotate-270 {
   transform: rotate(270deg);
 }
+
+.swiper-button-prev {
+  /* left: var(--swiper-navigation-sides-offset,); */
+  right: auto;
+  left: unset;
+  right: 71px !important;
+}
+
+.testimonialSwiper .swiper-button-prev {
+  /* left: var(--swiper-navigation-sides-offset,); */
+  right: auto;
+  left: unset;
+  right: 71px !important;
+}
+
+.testimonialSwiper .swiper-button-next {
+  top: unset;
+  bottom: 1%;
+  color: blue;
+}
+
+.testimonialSwiper .swiper-button-prev {
+  top: unset;
+  bottom: 1%;
+  color: #fff;
+}
+.testimonialSwiper .swiper-button-prev:after {
+  font-size: 30px;
+}
+
+.testimonialSwiper .swiper-button-next:after {
+  font-size: 30px;
+}
+
+.testimonialSwiper .swiper-button-prev {
+  color: #fff;
+  background: #0a2472;
+  height: 50px;
+  border-radius: 100%;
+  width: 50px;
+  line-height: 50px;
+}
+
+.testimonialSwiper .swiper-button-next {
+  color: white;
+  background: #0a2472;
+  height: 50px;
+  border-radius: 100%;
+  width: 50px;
+  line-height: 50px;
+}
+
+
+.homeGallery {}
